@@ -1,0 +1,13 @@
+{
+  "name": "jellyfin-volumebooster-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

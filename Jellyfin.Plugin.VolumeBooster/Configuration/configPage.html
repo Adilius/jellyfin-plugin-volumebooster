@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Volume Booster</title>
+</head>
+<body>
+    <div id="VolumeBoosterConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button,emby-checkbox">
+        <div data-role="content">
+            <div class="content-primary">
+                <form id="VolumeBoosterConfigForm">
+                    <p>
+                        Lets Jellyfin play louder than 100% (no transcoding).
+                        Clients pick up changes after reloading (Ctrl+R) or restarting.
+                    </p>
+                    <div class="checkboxContainer checkboxContainer-withDescription">
+                        <label class="emby-checkbox-label">
+                            <input id="Enabled" type="checkbox" is="emby-checkbox" />
+                            <span>Enabled</span>
+                        </label>
+                    </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="MaxPercent">Maximum volume (%)</label>
+                        <input id="MaxPercent" type="number" is="emby-input" min="100" max="200" step="1" />
+                        <div class="fieldDescription">mpv volume is cubic, so <span id="MaxDb"></span> (150% is about +10.6 dB).</div>
+                    </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="StepPercent">Step (%)</label>
+                        <input id="StepPercent" type="number" is="emby-input" min="1" max="25" step="1" />
+                        <div class="fieldDescription">Used by the volume keys, the mouse wheel and the extra shortcuts.</div>
+                    </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="WarnAbovePercent">Red indicator from (%)</label>
+                        <input id="WarnAbovePercent" type="number" is="emby-input" min="100" max="200" step="1" />
+                        <div class="fieldDescription">The on-screen indicator turns red at this level and above.</div>
+                    </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="IncreaseKey">Extra keys: volume up</label>
+                        <input id="IncreaseKey" type="text" is="emby-input" maxlength="20" />
+                    </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="DecreaseKey">Extra keys: volume down</label>
+                        <input id="DecreaseKey" type="text" is="emby-input" maxlength="20" />
+                    </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="ResetKey">Extra keys: reset to 100%</label>
+                        <input id="ResetKey" type="text" is="emby-input" maxlength="20" />
+                        <div class="fieldDescription">Separate several keys with spaces. Values are KeyboardEvent.key names, e.g. <code>+</code>, <code>]</code>, <code>F9</code>; keys typed with AltGr work. Avoid <code>0</code>-<code>9</code> (Jellyfin seeks with them). During playback the Up/Down arrows and the mouse wheel also go past 100%.</div>
+                    </div>
+                    <div class="checkboxContainer checkboxContainer-withDescription">
+                        <label class="emby-checkbox-label">
+                            <input id="ResetOnStart" type="checkbox" is="emby-checkbox" />
+                            <span>Reset to 100% when the client starts</span>
+                        </label>
+                    </div>
+                    <div>
+                        <button is="emby-button" type="submit" class="raised button-submit block emby-button">
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            (function () {
+                var pluginId = '42108d52-290b-4f87-9deb-e7a565adc869';
+                var page = document.querySelector('#VolumeBoosterConfigPage');
+                var numbers = ['MaxPercent', 'StepPercent', 'WarnAbovePercent'];
+                var texts = ['IncreaseKey', 'DecreaseKey', 'ResetKey'];
+                var checks = ['Enabled', 'ResetOnStart'];
+
+                function field(id) {
+                    return page.querySelector('#' + id);
+                }
+
+                function updateDb() {
+                    var p = Number(field('MaxPercent').value);
+                    field('MaxDb').textContent = p > 0
+                        ? p + '% is +' + (60 * Math.log10(p / 100)).toFixed(1) + ' dB'
+                        : '';
+                }
+
+                field('MaxPercent').addEventListener('input', updateDb);
+
+                page.addEventListener('pageshow', function () {
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(pluginId).then(function (config) {
+                        numbers.concat(texts).forEach(function (id) { field(id).value = config[id]; });
+                        checks.forEach(function (id) { field(id).checked = config[id]; });
+                        updateDb();
+                        Dashboard.hideLoadingMsg();
+                    });
+                });
+
+                page.querySelector('#VolumeBoosterConfigForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(pluginId).then(function (config) {
+                        numbers.forEach(function (id) { config[id] = parseInt(field(id).value, 10); });
+                        texts.forEach(function (id) { config[id] = field(id).value; });
+                        checks.forEach(function (id) { config[id] = field(id).checked; });
+                        ApiClient.updatePluginConfiguration(pluginId, config).then(function (result) {
+                            Dashboard.processPluginConfigurationUpdateResult(result);
+                        });
+                    });
+                    return false;
+                });
+            })();
+        </script>
+    </div>
+</body>
+</html>

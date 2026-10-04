@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Jellyfin.Plugin.VolumeBooster/Jellyfin.Plugin.VolumeBooster.csproj" />
+  <Project Path="tests/Jellyfin.Plugin.VolumeBooster.Tests/Jellyfin.Plugin.VolumeBooster.Tests.csproj" />
+</Solution>

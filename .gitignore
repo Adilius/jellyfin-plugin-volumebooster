@@ -1,0 +1,16 @@
+bin/
+obj/
+.vs/
+.idea/
+artifacts/
+node_modules/
+web/dist/
+# Built from web/ (npm run build); CI rebuilds it.
+Jellyfin.Plugin.VolumeBooster/Web/volumebooster.js
+# Local dev server state and test media
+dev/config*/
+dev/media/
+e2e/test-results/
+e2e/playwright-report/
+TestResults/
+*.user

@@ -1,0 +1,20 @@
+---
+name: "Volume Booster"
+guid: "42108d52-290b-4f87-9deb-e7a565adc869"
+version: "1.0.0.0"
+# Jellyfin 10.11 build. The 12.x build is produced from this file by
+# scripts/package.ps1 / CI, swapping targetAbi to 12.0.0.0 and framework to net10.0.
+targetAbi: "10.11.0.0"
+framework: "net9.0"
+overview: "Raise Jellyfin volume above 100% without transcoding."
+description: >
+  Lets the volume controls (arrow keys, mouse wheel, optional extra shortcuts)
+  push the volume past 100%, up to 200%, in Jellyfin.
+  No other plugins needed. mpv volume is cubic: 150% is about +10.6 dB.
+category: "General"
+imageUrl: "https://raw.githubusercontent.com/Adilius/jellyfin-plugin-volumebooster/main/logo.jpg"
+owner: "Adilius"
+artifacts:
+- "Jellyfin.Plugin.VolumeBooster.dll"
+changelog: >
+  Initial release.

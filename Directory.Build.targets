@@ -1,0 +1,20 @@
+<Project>
+  <!--
+    One target framework per supported server ABI:
+      net9.0  -> Jellyfin 10.11 (targetAbi 10.11.0.0)
+      net10.0 -> Jellyfin 12.x (targetAbi 12.0.0.0)
+    Package versions are the lowest of each line so the build runs on every
+    server of that line.
+  -->
+  <!-- packages.lock.json pins transitive packages too; CI (CI=true) fails on any drift. -->
+  <PropertyGroup>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="'$(CI)' == 'true'">true</RestoreLockedMode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <JellyfinPackageVersion>10.11.0</JellyfinPackageVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <JellyfinPackageVersion>12.0.0</JellyfinPackageVersion>
+  </PropertyGroup>
+</Project>

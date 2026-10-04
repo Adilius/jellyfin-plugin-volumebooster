@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <RootNamespace>Jellyfin.Plugin.VolumeBooster</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Nullable>enable</Nullable>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Jellyfin.Controller" Version="$(JellyfinPackageVersion)">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Jellyfin.Model" Version="$(JellyfinPackageVersion)">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SerilogAnalyzer" Version="0.15.0" PrivateAssets="All" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" PrivateAssets="All" />
+    <PackageReference Include="SmartAnalyzers.MultithreadingAnalyzer" Version="1.1.31" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Configuration\configPage.html" />
+    <EmbeddedResource Include="Configuration\configPage.html" />
+    <!-- Built by: npm run build (in web/) -->
+    <None Remove="Web\volumebooster.js" />
+    <EmbeddedResource Include="Web\volumebooster.js" />
+  </ItemGroup>
+
+  <Target Name="CheckClientBundle" BeforeTargets="BeforeBuild">
+    <Error Condition="!Exists('Web\volumebooster.js')" Text="Web\volumebooster.js is missing. Build it first: npm ci and npm run build in web/." />
+  </Target>
+
+</Project>

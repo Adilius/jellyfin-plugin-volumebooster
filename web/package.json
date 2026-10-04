@@ -1,0 +1,18 @@
+{
+  "name": "jellyfin-volumebooster-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Client script that lets Jellyfin raise volume above 100%.",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "jsdom": "26.1.0",
+    "vitest": "3.2.7"
+  }
+}

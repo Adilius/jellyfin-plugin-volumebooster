@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1326"/>
+      <stop offset="1" stop-color="#1c1033"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.36" cy="0.46" r="0.42">
+      <stop offset="0" stop-color="#ff8a3d" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#ff8a3d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="boost" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb648"/>
+      <stop offset="1" stop-color="#ff4d3d"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ffd7b0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+
+  <!-- Speaker -->
+  <g transform="translate(330 300)">
+    <path d="M0 150 h120 l170 -140 v460 l-170 -140 h-120 z" fill="#f4f6fb" stroke="#f4f6fb" stroke-width="24" stroke-linejoin="round"/>
+    <!-- waves up to 100% -->
+    <path d="M370 130 a210 210 0 0 1 0 220" fill="none" stroke="#f4f6fb" stroke-width="34" stroke-linecap="round"/>
+    <!-- boost waves -->
+    <path d="M450 50 a330 330 0 0 1 0 380" fill="none" stroke="url(#boost)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M530 -30 a450 450 0 0 1 0 540" fill="none" stroke="url(#boost)" stroke-width="34" stroke-linecap="round" opacity="0.85"/>
+  </g>
+
+  <!-- Title -->
+  <g font-family="Segoe UI, Inter, Helvetica Neue, Arial, sans-serif">
+    <text x="1060" y="517" font-size="150" font-weight="800" fill="url(#title)" letter-spacing="-2">Volume</text>
+    <text x="1060" y="672" font-size="150" font-weight="800" fill="url(#title)" letter-spacing="-2">Booster</text>
+  </g>
+</svg>
