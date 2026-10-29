@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0.0 / 1.0.0.1 — unreleased
+## 1.0.0.0 / 1.0.0.1 — 2026-10-29
 
 First public release. Package `1.0.0.0` is for Jellyfin 10.11 (net9.0), `1.0.0.1` for Jellyfin 12.x
 (net10.0).
