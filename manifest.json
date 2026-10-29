@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "guid": "42108d52-290b-4f87-9deb-e7a565adc869",
+        "name": "Volume Booster",
+        "description": "Lets the volume controls (arrow keys, mouse wheel, optional extra shortcuts) push the volume past 100%, up to 200%, in Jellyfin. No other plugins needed. mpv volume is cubic: 150% is about +10.6 dB.\n",
+        "overview": "Raise Jellyfin volume above 100% without transcoding.",
+        "owner": "Adilius",
+        "category": "General",
+        "imageUrl": "https://raw.githubusercontent.com/Adilius/jellyfin-plugin-volumebooster/main/logo.jpg",
+        "versions": [
+            {
+                "version": "1.0.0.1",
+                "changelog": "Initial release.\n",
+                "targetAbi": "12.0.0.0",
+                "sourceUrl": "https://github.com/Adilius/jellyfin-plugin-volumebooster/releases/download/v1.0.0.0/volume-booster_1.0.0.1.zip",
+                "checksum": "c9aacd341c3851eb2183be748ab63274",
+                "timestamp": "2026-10-29T18:57:55Z"
+            },
+            {
+                "version": "1.0.0.0",
+                "changelog": "Initial release.\n",
+                "targetAbi": "10.11.0.0",
+                "sourceUrl": "https://github.com/Adilius/jellyfin-plugin-volumebooster/releases/download/v1.0.0.0/volume-booster_1.0.0.0.zip",
+                "checksum": "2e8dcb47dcb8cd3cd8690238b40fb7fa",
+                "timestamp": "2026-10-29T18:57:51Z"
+            }
+        ]
+    }
+]
