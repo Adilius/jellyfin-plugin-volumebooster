@@ -13,7 +13,7 @@
                 "changelog": "Initial release.\n",
                 "targetAbi": "12.0.0.0",
                 "sourceUrl": "https://github.com/Adilius/jellyfin-plugin-volumebooster/releases/download/v1.0.0.0/volume-booster_1.0.0.1.zip",
-                "checksum": "c9aacd341c3851eb2183be748ab63274",
+                "checksum": "1df79669992ad5b2abb49469911d4533",
                 "timestamp": "2026-10-29T18:57:55Z"
             },
             {
@@ -21,7 +21,7 @@
                 "changelog": "Initial release.\n",
                 "targetAbi": "10.11.0.0",
                 "sourceUrl": "https://github.com/Adilius/jellyfin-plugin-volumebooster/releases/download/v1.0.0.0/volume-booster_1.0.0.0.zip",
-                "checksum": "2e8dcb47dcb8cd3cd8690238b40fb7fa",
+                "checksum": "99410561018c7e4e04b236604b240ba7",
                 "timestamp": "2026-10-29T18:57:51Z"
             }
         ]
