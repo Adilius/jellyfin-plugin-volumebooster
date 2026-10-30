@@ -1,0 +1,66 @@
+name: Bug report
+description: Something doesn't work as described in the README.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening, check `docs/troubleshooting.md`. Web browsers can't play above 100%, so the plugin does nothing there.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: client
+    attributes:
+      label: Client
+      options:
+        - Jellyfin Media Player
+        - Jellyfin Desktop
+        - Web browser
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: client-version
+    attributes:
+      label: Client version
+      placeholder: e.g. 1.12.0
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: e.g. Windows 11, Ubuntu 24.04 (Flatpak), macOS 15
+  - type: input
+    id: server-version
+    attributes:
+      label: Jellyfin server version
+      placeholder: e.g. 10.11.2
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Volume Booster version
+      description: Dashboard → Plugins.
+      placeholder: e.g. 1.0.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Browser console output
+      description: |
+        Start the client with `--remote-debugging-port=9222` (quit it first), open `chrome://inspect`, and paste the console output and the value of `window.__volumeBooster`. Or paste the output of `node scripts/jmp-smoke.mjs`.
+      render: text
+  - type: textarea
+    id: server-log
+    attributes:
+      label: Server log
+      description: Lines containing `Volume Booster`, if any.
+      render: text
