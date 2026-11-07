@@ -8,7 +8,7 @@ Play louder than 100%, up to 200%, in Jellyfin.
 ## Install
 
 1. Dashboard → Plugins → Repositories → **+**, and add
-   `https://raw.githubusercontent.com/Adilius/jellyfin-plugin-volumebooster/main/manifest.json`
+   `https://raw.githubusercontent.com/Adilius/jellyfin-volumebooster/main/manifest.json`
 2. Catalog → install **Volume Booster** → restart the server.
 3. Reload the desktop client (Ctrl+R) or restart it.
 4. Optional: change settings under Dashboard → Plugins → Volume Booster (max %, step, keys,

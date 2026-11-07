@@ -12,7 +12,7 @@ description: >
   push the volume past 100%, up to 200%, in Jellyfin.
   No other plugins needed. mpv volume is cubic: 150% is about +10.6 dB.
 category: "General"
-imageUrl: "https://raw.githubusercontent.com/Adilius/jellyfin-plugin-volumebooster/main/logo.jpg"
+imageUrl: "https://raw.githubusercontent.com/Adilius/jellyfin-volumebooster/main/logo.jpg"
 owner: "Adilius"
 artifacts:
 - "Jellyfin.Plugin.VolumeBooster.dll"
