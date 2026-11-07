@@ -19,7 +19,20 @@ Play louder than 100%, up to 200%, in Jellyfin.
 
 - During playback, use the Up/Down arrows to boost the volume up to 200% or back down.
 - An on-screen indicator shows `Volume 150% (+10.6 dB)` and turns red from 150% (configurable).
-- Works in Jellyfin Media Player and Jellyfin Desktop. Web browsers can't play above 100%, so the plugin does nothing there.
+- See [Compatibility](#compatibility) for which clients it works in.
+
+
+## Compatibility
+
+| Client | Status | Notes |
+|---|---|---|
+| Jellyfin Media Player | Works | |
+| Jellyfin Desktop | Untested | |
+| Web browsers | No effect | Browsers can't play above 100%. |
+| Android | Untested | |
+| iOS | Untested | |
+| Android TV | Untested | |
+| Swiftfin | Untested | |
 
 
 ## Development
