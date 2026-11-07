@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest a new feature or a change.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would you like to do
+      description: The problem or use case, not only the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: How it could work
+  - type: input
+    id: client
+    attributes:
+      label: Client
+      description: Which client you would use it in.
+      placeholder: e.g. Jellyfin Media Player 1.12 on Windows
