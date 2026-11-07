@@ -31,8 +31,10 @@ Play louder than 100%, up to 200%, in Jellyfin.
 | Web browsers | No effect | Browsers can't play above 100%. |
 | Android | Untested | |
 | iOS | Untested | |
-| Android TV | Untested | |
-| Swiftfin | Untested | |
+| Android TV | Not supported | Native app, doesn't load Jellyfin's web interface. |
+| Swiftfin | Not supported | Native app, doesn't load Jellyfin's web interface. |
+
+The plugin runs inside Jellyfin's web interface, so apps that don't use it (Android TV, Swiftfin, Findroid, Infuse, Kodi, Roku and similar) are not supported.
 
 
 ## Development
